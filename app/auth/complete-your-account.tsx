@@ -45,7 +45,7 @@ const CompleteYourAccountScreen = () => {
 
       await user?.reload();
 
-      return router.push("/home");
+      return router.push("/");
     } catch (error: any) {
       if (error.message === "That username is taken. Please try another.") {
         return setError("username", { message: "Username is already taken" });
