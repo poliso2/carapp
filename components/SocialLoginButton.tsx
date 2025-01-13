@@ -1,6 +1,6 @@
 import { useOAuth, useUser } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
-import {  useRouter } from "expo-router";
+import {  useNavigation, useRouter } from "expo-router";
 import {
   ActivityIndicator,
   StyleSheet,
@@ -61,9 +61,10 @@ const SocialLoginButton = ({
     try {
       setIsLoading(true);
       const { createdSessionId, setActive } = await startOAuthFlow({
-        redirectUrl: Linking.createURL("/Home", { scheme: "myapp" }),
+        // now, redirecting to (tabs) is succesgully, but as soon as the user is redirected to the home screen, the user is logged out.
+        redirectUrl: Linking.createURL("/(tabs)", { scheme: "myapp" }),
       });
-
+      console.log("the message is: ", {createdSessionId, setActive});
       // If sign in was successful, set the active session
       if (createdSessionId) {
         console.log("Session created", createdSessionId);
