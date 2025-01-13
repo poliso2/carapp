@@ -2,7 +2,7 @@ import { useUser } from '@clerk/clerk-expo'
 import { StyleSheet, Text, View } from 'react-native'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
-export default function Page() {
+export default function index() {
   return (
     <View>
       <HomeHeader/>
